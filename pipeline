@@ -11,12 +11,6 @@ pipeline {
                 sh "docker-compose up -d"
             }
         }
-        stage("login"){
-            steps{
-                sh "docker exec dev1 /bin/bash"
-                sh "cd /usr/share/nginx/html"
-                sh "cat index.html"
-            }
-        }
+        
     }
 }
