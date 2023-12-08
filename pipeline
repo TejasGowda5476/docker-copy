@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages{
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage("compose"){
+            steps{
+                sh "docker-compose up -d /var/lib/jenkins/workspace/${JOB_NAME}/docker-compose.yml "
+            }
+        }
+    }
+}
