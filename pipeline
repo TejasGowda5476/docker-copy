@@ -8,7 +8,14 @@ pipeline {
         }
         stage("compose"){
             steps{
-                sh "docker-compose up -d /var/lib/jenkins/workspace/${JOB_NAME}/docker-compose.yml "
+                sh "docker-compose up -d"
+            }
+        }
+        stage("login"){
+            steps{
+                sh "docker exec dev1 /bin/bash"
+                sh "cd /usr/share/nginx/html"
+                sh "cat index.html"
             }
         }
     }
